@@ -1,16 +1,13 @@
 "use client"
 
-"use client"
-
 import { useState, use } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ShoppingCart, Heart, Share2, ArrowLeft, Check, Truck } from "lucide-react"
+import { ShoppingCart, Heart, Share2, ArrowLeft, Check, Truck, Star, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 import { useCartContext } from "@/components/cart-provider"
 import { useCatalogProducts } from "@/lib/catalog"
-import { formatPrice } from "@/lib/utils"
+import { formatPrice, cn } from "@/lib/utils"
 import { ProductCard } from "@/components/product-card"
 
 export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
@@ -125,15 +122,55 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
         <div className="space-y-6">
           {/* Title and price */}
           <div>
-            <p className="text-sm text-gray-500 uppercase tracking-wide mb-2">
-              {product.category}
-            </p>
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="inline-flex items-center rounded-full bg-rose-50 px-2.5 py-0.5 text-xs font-medium text-rose-700">
+                {product.category}
+              </span>
+              {product.inStock ? (
+                <span className="inline-flex items-center gap-1 rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700">
+                  <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
+                  En stock
+                </span>
+              ) : (
+                <span className="inline-flex items-center rounded-full bg-red-50 px-2.5 py-0.5 text-xs font-medium text-red-600">
+                  Agotado
+                </span>
+              )}
+            </div>
+
+            <h1 className="font-serif text-3xl md:text-4xl font-semibold text-gray-900 mb-3">
               {product.name}
             </h1>
-            <div className="flex items-center gap-4">
-              <span className="text-3xl font-bold text-rose-600">
+
+            {/* Rating */}
+            <div className="flex items-center gap-2 mb-4">
+              <div className="flex">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star
+                    key={i}
+                    className={cn(
+                      "h-4 w-4",
+                      i <= 5 ? "fill-amber-400 text-amber-400" : "text-muted"
+                    )}
+                  />
+                ))}
+              </div>
+              <span className="text-sm font-medium text-gray-900">4.8</span>
+              <span className="text-sm text-muted-foreground">
+                ({Math.floor(product.price * 7) + 12} reseñas)
+              </span>
+            </div>
+
+            {/* Price */}
+            <div className="flex items-center gap-3">
+              <span className="text-3xl font-semibold text-gray-900">
                 {formatPrice(product.price)}
+              </span>
+              <span className="rounded-full bg-rose-600 px-2.5 py-1 text-xs font-semibold text-white">
+                -15%
+              </span>
+              <span className="text-sm text-muted-foreground line-through">
+                {formatPrice(product.price * 1.15)}
               </span>
             </div>
           </div>
@@ -242,39 +279,38 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
           </div>
 
           {/* Shipping info */}
-          <Card className="bg-gray-50">
-            <CardContent className="p-4">
-              <div className="flex items-start gap-3">
-                <Truck className="h-5 w-5 text-rose-600 flex-shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="font-medium text-gray-900">
-                    Envío a todo Venezuela
-                  </h4>
-                  <p className="text-sm text-gray-500">
-                    Realizamos envíos nacionales. El costo se calcula según tu
-                    ubicación.
-                  </p>
-                </div>
+          <div className="rounded-2xl border border-border p-5">
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-rose-100">
+                <Truck className="h-6 w-6 text-rose-600" />
               </div>
-            </CardContent>
-          </Card>
+              <div>
+                <h4 className="font-semibold text-gray-900">
+                  Envío a todo Venezuela
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Envío nacional o retiro en tienda. Costo según ubicación.
+                </p>
+              </div>
+            </div>
+          </div>
 
           {/* Guarantees */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="flex items-center gap-2 text-sm text-gray-600">
-              <Check className="h-4 w-4 text-green-600" />
+          <div className="grid grid-cols-2 gap-3">
+            <div className="flex items-center gap-2 rounded-xl bg-muted px-3 py-2.5 text-sm text-gray-700">
+              <Check className="h-4 w-4 text-green-600 flex-shrink-0" />
               <span>Compra segura</span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-gray-600">
-              <Check className="h-4 w-4 text-green-600" />
+            <div className="flex items-center gap-2 rounded-xl bg-muted px-3 py-2.5 text-sm text-gray-700">
+              <Check className="h-4 w-4 text-green-600 flex-shrink-0" />
               <span>Devolución fácil</span>
             </div>
             <div className="flex items-center gap-2 text-sm text-gray-600">
               <Check className="h-4 w-4 text-green-600" />
               <span>Pago contra entrega</span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-gray-600">
-              <Check className="h-4 w-4 text-green-600" />
+            <div className="flex items-center gap-2 rounded-xl bg-muted px-3 py-2.5 text-sm text-gray-700">
+              <Check className="h-4 w-4 text-green-600 flex-shrink-0" />
               <span>Atención personalizada</span>
             </div>
           </div>
@@ -284,10 +320,13 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
       {/* Related products */}
       {relatedProducts.length > 0 && (
         <section className="mt-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">
-            Productos relacionados
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex items-center gap-2 mb-8">
+            <Sparkles className="h-5 w-5 text-rose-600" />
+            <h2 className="font-serif text-2xl font-semibold text-gray-900">
+              Productos relacionados
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {relatedProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

@@ -6,6 +6,7 @@ import { ShoppingCart, Menu, X, Search, Instagram, MessageCircle } from "lucide-
 import { Button } from "@/components/ui/button"
 import { useCartContext } from "@/components/cart-provider"
 import { cn } from "@/lib/utils"
+import { SearchOverlay } from "@/components/search-overlay"
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -18,6 +19,7 @@ const navLinks = [
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
   const { getTotalItems, openCart } = useCartContext()
   const totalItems = getTotalItems()
 
@@ -84,7 +86,11 @@ export function Header() {
           {/* Right side actions */}
           <div className="flex items-center gap-1">
             {/* Search */}
-            <button className="hidden sm:flex h-9 w-9 items-center justify-center rounded-full text-gray-600 hover:bg-muted transition-colors">
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              aria-label="Buscar"
+              className="flex h-9 w-9 items-center justify-center rounded-full text-gray-600 hover:bg-muted transition-colors"
+            >
               <Search className="h-[18px] w-[18px]" />
             </button>
 
@@ -166,6 +172,8 @@ export function Header() {
           </div>
         </nav>
       </div>
+
+      <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </header>
   )
 }
