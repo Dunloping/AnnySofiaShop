@@ -1,0 +1,676 @@
+import { Product } from "./store"
+
+// Imágenes reales copiadas a public/productos/*.jpg
+// Cada colección agrupa las fotos de un mismo tema.
+// Nombres y precios son editables desde /admin
+
+const img = (name: string) => `/productos/${name}.jpg`
+
+export const categories = [
+  { id: "todos", name: "Todos", icon: "✨", image: img("photo_30") },
+  { id: "llaveros", name: "Llaveros", icon: "🔑", image: img("photo_1") },
+  { id: "blusas", name: "Blusas", icon: "👚", image: img("photo_100") },
+  { id: "tops", name: "Tops", icon: "🎽", image: img("photo_70") },
+  { id: "camisetas", name: "Camisetas", icon: "👕", image: img("photo_21") },
+  { id: "vestidos", name: "Vestidos", icon: "👗", image: img("photo_60") },
+  { id: "bodys", name: "Bodys", icon: "🩱", image: img("photo_28") },
+  { id: "bikinis", name: "Bikinis", icon: "👙", image: img("photo_96") },
+  { id: "pantalones", name: "Pantalones", icon: "👖", image: img("photo_90") },
+  { id: "abrigos", name: "Abrigos", icon: "🧥", image: img("photo_29") },
+  { id: "accesorios", name: "Accesorios", icon: "👜", image: img("photo_78") },
+  { id: "cosmeticos", name: "Cosméticos", icon: "💄", image: img("photo_86") },
+]
+
+export const products: Product[] = [
+  // ===== LLAVEROS =====
+  {
+    id: "llavero-fitness-morado",
+    name: "Llavero Fitness Morado",
+    price: 12,
+    image: img("photo_1"),
+    images: [img("photo_1"), img("photo_2")],
+    category: "llaveros",
+    description:
+      "Llavero artesanal con dijes fitness: disco de pesas, mancuerna y botella deportiva. Cordón trenzado premium.",
+    inStock: true,
+  },
+  {
+    id: "llavero-fitness-naranja",
+    name: "Llavero Fitness Naranja",
+    price: 12,
+    image: img("photo_3"),
+    images: [img("photo_3")],
+    category: "llaveros",
+    description:
+      "Llavero fitness con dijes de gym y cuerda trenzada naranja. A tienda el outfit de tu rutina.",
+    inStock: true,
+  },
+  {
+    id: "llavero-fitness-rojo",
+    name: "Llavero Fitness Rojo",
+    price: 12,
+    image: img("photo_4"),
+    images: [img("photo_4")],
+    category: "llaveros",
+    description:
+      "Llavero fitness con mancuerna y pesa roja. Cuerda trenzada a juego.",
+    inStock: true,
+  },
+  {
+    id: "llavero-kettlebell-morado",
+    name: "Llavero Kettlebell Morado",
+    price: 12,
+    image: img("photo_7"),
+    images: [img("photo_7")],
+    category: "llaveros",
+    description:
+      "Llavero con kettlebell y mancuerna en tono lila. Cuerda trenzada premium.",
+    inStock: true,
+  },
+  {
+    id: "llavero-baseball",
+    name: "Llavero Baseball",
+    price: 12,
+    image: img("photo_10"),
+    images: [img("photo_10"), img("photo_11")],
+    category: "llaveros",
+    description:
+      "Llavero temático de béisbol con guante, bate y pelota. Cuerda trenzada marrón.",
+    inStock: true,
+  },
+  {
+    id: "llavero-hamburguesa",
+    name: "Llavero Hamburguesa",
+    price: 10,
+    image: img("photo_12"),
+    images: [img("photo_12")],
+    category: "llaveros",
+    description:
+      "Llavero de hamburguesa con carita feliz. Cuerda trenzada amarilla.",
+    inStock: true,
+  },
+  {
+    id: "llavero-papas",
+    name: "Llavero Papas Fritas",
+    price: 10,
+    image: img("photo_13"),
+    images: [img("photo_13")],
+    category: "llaveros",
+    description:
+      "Llavero de papas fritas con carita feliz. Cuerda trenzada roja.",
+    inStock: true,
+  },
+  {
+    id: "llavero-corazon-bolitas",
+    name: "Llavero Corazón Rojo",
+    price: 12,
+    image: img("photo_14"),
+    images: [img("photo_14"), img("photo_15")],
+    category: "llaveros",
+    description:
+      "Llavero con corazón rojo de peluche, perlas y dijes. Cordón trenzado.",
+    inStock: true,
+  },
+  {
+    id: "llavero-chocolate-moño",
+    name: "Llavero Chocolate y Moño",
+    price: 12,
+    image: img("photo_5"),
+    images: [img("photo_5")],
+    category: "llaveros",
+    description:
+      "Llavero con chocolate, moño y corazón de cuero rojo.",
+    inStock: true,
+  },
+  {
+    id: "llavero-amor-animal",
+    name: "Llavero Love Animal Print",
+    price: 12,
+    image: img("photo_6"),
+    images: [img("photo_6")],
+    category: "llaveros",
+    description:
+      "Llavero con bolsito animal print, mariposa y dije Love. Cuerda trenzada.",
+    inStock: true,
+  },
+  {
+    id: "llavero-chocolate-blanco",
+    name: "Llavero Chocolate y Corazón",
+    price: 12,
+    image: img("photo_8"),
+    images: [img("photo_8")],
+    category: "llaveros",
+    description:
+      "Llavero con chocolate y corazón en tonos claros. Cuerda trenzada.",
+    inStock: true,
+  },
+  {
+    id: "llavero-cafe",
+    name: "Llavero Café con leche",
+    price: 12,
+    image: img("photo_9"),
+    images: [img("photo_9")],
+    category: "llaveros",
+    description:
+      "Llavero con mini vaso de café y carterita de cuero. Cuerda trenzada.",
+    inStock: true,
+  },
+
+  // ===== JERSEYS =====
+  {
+    id: "jersey-los-angeles",
+    name: "Jersey Los Angeles 22",
+    price: 25,
+    image: img("photo_20"),
+    images: [img("photo_20")],
+    category: "camisetas",
+    description: "Jersey deportivo estilo universitario con estampado Los Angeles. Colores: verde, negro, blanco, beige.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+
+  // ===== SUÉTERS =====
+  {
+    id: "sueter-rayas",
+    name: "Suéter de Rayas con Botones",
+    price: 22,
+    image: img("photo_30"),
+    images: [img("photo_30")],
+    category: "abrigos",
+    description: "Suéter tejido a rayas blanco/negro con botones decorativos en el hombro.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+
+  // ===== BIKINIS =====
+  {
+    id: "bikini-leopardo",
+    name: "Bikini Animal Print",
+    price: 20,
+    image: img("photo_40"),
+    images: [img("photo_40")],
+    category: "bikinis",
+    description: "Bikini de dos piezas con estampado animal print y ajuste al cuerpo.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+
+  // ===== VESTIDOS =====
+  {
+    id: "vestido-leopardo",
+    name: "Vestido Leopardo Manga Larga",
+    price: 28,
+    image: img("photo_60"),
+    images: [img("photo_60"), img("photo_61"), img("photo_63")],
+    category: "vestidos",
+    description: "Vestido mini con estampado leopardo y mangas largas semitransparentes.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+
+  // ===== BLUSAS =====
+  {
+    id: "blusa-saten-beige",
+    name: "Blusa Satén con Moño",
+    price: 22,
+    image: img("photo_100"),
+    images: [img("photo_100")],
+    category: "blusas",
+    description: "Blusa de satén con moño y vuelos en las mangas. Tono champán.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "blusa-rosa-corazon",
+    name: "Blusa Rosa de Satén",
+    price: 22,
+    image: img("photo_99"),
+    images: [img("photo_99")],
+    category: "blusas",
+    description: "Blusa rosa de satén con moño y mangas con vuelo.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+
+  // ===== TOPS =====
+  {
+    id: "top-maquinas",
+    name: "Top Bicolor Asimétrico",
+    price: 15,
+    image: img("photo_90"),
+    images: [img("photo_90")],
+    category: "tops",
+    description: "Top asimétrico bicolor con cuello alto. Negro y beige.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "top-marmol-azul",
+    name: "Top Mármol Azul",
+    price: 16,
+    image: img("photo_70"),
+    images: [img("photo_70"), img("photo_51")],
+    category: "tops",
+    description: "Top de manga larga con cuello alto y efecto mármol azul.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "top-floral-lila",
+    name: "Top Floral Lila",
+    price: 16,
+    image: img("photo_53"),
+    images: [img("photo_53")],
+    category: "tops",
+    description: "Top de manga larga con estampado floral lila y cuello bandana.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "top-chocolate",
+    name: "Top Chocolate Mármol",
+    price: 16,
+    image: img("photo_56"),
+    images: [img("photo_56")],
+    category: "tops",
+    description: "Top de manga larga con cuello alto y efecto mármol chocolate.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "top-mar-azul",
+    name: "Top Mar Azul",
+    price: 16,
+    image: img("photo_58"),
+    images: [img("photo_58")],
+    category: "tops",
+    description: "Top de manga larga con cuello alto y estampado mar azul.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "top-encaje-blanco",
+    name: "Top de Encaje Blanco",
+    price: 18,
+    image: img("photo_45"),
+    images: [img("photo_45")],
+    category: "tops",
+    description: "Top transparente de encaje con diseño floral. Incluye top tono a tono.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "top-puntitos-negro",
+    name: "Top de Puntitos Negro",
+    price: 18,
+    image: img("photo_47"),
+    images: [img("photo_47")],
+    category: "tops",
+    description: "Top transparente con lunares y cuello alto. Negro.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "top-encaje-negro",
+    name: "Top de Encaje Negro",
+    price: 18,
+    image: img("photo_43"),
+    images: [img("photo_43")],
+    category: "tops",
+    description: "Top transparente negro de manga larga con cuello alto.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "top-bretel-rosa",
+    name: "Blusa Rosa con Lazo",
+    price: 16,
+    image: img("photo_41"),
+    images: [img("photo_41")],
+    category: "tops",
+    description: "Blusa rosa con escote en V y lazos ajustables. Falda blanca de mezclilla.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "top-lazo-burdeos",
+    name: "Top Burgundy con Lazos",
+    price: 16,
+    image: img("photo_91"),
+    images: [img("photo_91")],
+    category: "tops",
+    description: "Top de punto con un hombro y moños en satén burgundy.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+
+  // ===== CAMISETAS =====
+  {
+    id: "camiseta-beagle",
+    name: "Camiseta The Beagles",
+    price: 15,
+    image: img("photo_21"),
+    images: [img("photo_21"), img("photo_22")],
+    category: "camisetas",
+    description: "Camiseta de algodón con estampado Beagles. Varios colores.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "camiseta-mama-bonita",
+    name: "Camiseta La Mamá Más Bonita",
+    price: 15,
+    image: img("photo_22"),
+    images: [img("photo_22")],
+    category: "camisetas",
+    description: "Camiseta de algodón con estampado Mamá Más Bonita.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "camiseta-manhattan",
+    name: "Camiseta Manhattan NYC",
+    price: 15,
+    image: img("photo_22"),
+    images: [img("photo_22")],
+    category: "camisetas",
+    description: "Camiseta con estampado Manhattan NYC.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "camiseta-i-love-ny",
+    name: "Camiseta I Love NY",
+    price: 15,
+    image: img("photo_23"),
+    images: [img("photo_23")],
+    category: "camisetas",
+    description: "Camiseta de algodón con estampado I Love NY y osito.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "camiseta-dog-corazon",
+    name: "Camiseta Dog of my Heart",
+    price: 15,
+    image: img("photo_23"),
+    images: [img("photo_23")],
+    category: "camisetas",
+    description: "Camiseta con estampado DOG y perrito.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "camiseta-rock-roll",
+    name: "Camiseta Rock & Roll",
+    price: 15,
+    image: img("photo_24"),
+    images: [img("photo_24")],
+    category: "camisetas",
+    description: "Camiseta de algodón con estampado Rock & Roll con brillos.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "camiseta-mickey",
+    name: "Camiseta Mickey",
+    price: 15,
+    image: img("photo_24"),
+    images: [img("photo_24")],
+    category: "camisetas",
+    description: "Camiseta con estampado Mickey y Los Angeles.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "camiseta-peace-love",
+    name: "Camiseta Peace Love",
+    price: 15,
+    image: img("photo_25"),
+    images: [img("photo_25")],
+    category: "camisetas",
+    description: "Camiseta de algodón con estampado Peace & Love.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "camiseta-iced-coffee",
+    name: "Camiseta Iced Coffee Club",
+    price: 15,
+    image: img("photo_25"),
+    images: [img("photo_25")],
+    category: "camisetas",
+    description: "Camiseta de algodón con estampado Iced Coffee Club.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "camiseta-1997",
+    name: "Camiseta 1997 California",
+    price: 15,
+    image: img("photo_25"),
+    images: [img("photo_25")],
+    category: "camisetas",
+    description: "Camiseta de algodón con estampado 1997 California.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "camiseta-lentejuelas",
+    name: "Camiseta con Lentejuelas",
+    price: 16,
+    image: img("photo_38"),
+    images: [img("photo_38")],
+    category: "camisetas",
+    description: "Camiseta con diseño de lentejuelas y apliques. Rosa y negro.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+
+  // ===== CHALECOS =====
+  {
+    id: "chaleco-botones",
+    name: "Chaleco de Botones",
+    price: 18,
+    image: img("photo_36"),
+    images: [img("photo_36")],
+    category: "abrigos",
+    description: "Chaleco tipo camisa con botones. Crema, mostaza, negro, burdeos, beige.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "chaleco-negro-beige",
+    name: "Chaleco Negro y Beige",
+    price: 18,
+    image: img("photo_26"),
+    images: [img("photo_26")],
+    category: "abrigos",
+    description: "Chaleco con botones en negro y camel.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "chaleco-leopardo",
+    name: "Chaleco Leopardo",
+    price: 18,
+    image: img("photo_27"),
+    images: [img("photo_27")],
+    category: "abrigos",
+    description: "Chaleco con estampado animal print y botones.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "chaleco-crochet",
+    name: "Chaleco de Crochet",
+    price: 18,
+    image: img("photo_75"),
+    images: [img("photo_75")],
+    category: "abrigos",
+    description: "Chaleco de punto con diseño geométrico. Negro, beige y blanco.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+
+  // ===== BODYS =====
+  {
+    id: "body-mangas-volantes",
+    name: "Body con Mangas de Vuelo",
+    price: 16,
+    image: img("photo_28"),
+    images: [img("photo_28")],
+    category: "bodys",
+    description: "Body de canelón con mangas de vuelo. Negro, blanco y marrón.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+  {
+    id: "body-color",
+    name: "Body Básico",
+    price: 15,
+    image: img("photo_31"),
+    images: [img("photo_31")],
+    category: "bodys",
+    description: "Body básico de un solo hombro. Naranja, amarillo, rojo y rosa.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+
+  // ===== CAMISAS =====
+  {
+    id: "camisa-botones",
+    name: "Camisa de Botones con Corazones",
+    price: 20,
+    image: img("photo_33"),
+    images: [img("photo_33")],
+    category: "blusas",
+    description: "Camisa de manga corta con botones de corazón. Rosa, azul, negro y verde.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+
+  // ===== CONJUNTO =====
+  {
+    id: "conjunto-gym-rojo",
+    name: "Conjunto Gym Rojo",
+    price: 22,
+    image: img("photo_96"),
+    images: [img("photo_96"), img("photo_50")],
+    category: "bikinis",
+    description: "Conjunto deportivo rojo: top asimétrico y short.",
+    sizes: ["S", "M", "L"],
+    inStock: true,
+  },
+
+  // ===== GORRA =====
+  {
+    id: "gorra-corazon",
+    name: "Gorra con Corazón",
+    price: 12,
+    image: img("photo_94"),
+    images: [img("photo_94")],
+    category: "accesorios",
+    description: "Gorra beige con bordado de corazón.",
+    inStock: true,
+  },
+
+  // ===== PAÑUELO =====
+  {
+    id: "panuelo-seda",
+    name: "Pañuelo de Seda",
+    price: 15,
+    image: img("photo_35"),
+    images: [img("photo_35")],
+    category: "accesorios",
+    description: "Pañuelo de seda con estampado clásico. Ideal para el cabello o el cuello.",
+    inStock: true,
+  },
+
+  // ===== COSMÉTICOS =====
+  {
+    id: "pocketbac-rapunzel",
+    name: "PocketBac Rapunzel",
+    price: 8,
+    image: img("photo_80"),
+    images: [img("photo_80")],
+    category: "cosmeticos",
+    description: "Gel antibacterial PocketBac de Bath & Body Works, edición Rapunzel.",
+    inStock: true,
+  },
+  {
+    id: "pocketbac-sea",
+    name: "PocketBac Sea & Sandstone",
+    price: 8,
+    image: img("photo_81"),
+    images: [img("photo_81")],
+    category: "cosmeticos",
+    description: "Gel antibacterial PocketBac, fragancia Sea & Sandstone.",
+    inStock: true,
+  },
+  {
+    id: "pocketbac-champagne",
+    name: "PocketBac Champagne Toast",
+    price: 8,
+    image: img("photo_83"),
+    images: [img("photo_83")],
+    category: "cosmeticos",
+    description: "Gel antibacterial humectante PocketBac, Champagne Toast.",
+    inStock: true,
+  },
+  {
+    id: "pocketbac-wishes",
+    name: "PocketBac A Thousand Wishes",
+    price: 8,
+    image: img("photo_84"),
+    images: [img("photo_84")],
+    category: "cosmeticos",
+    description: "Gel antibacterial PocketBac, A Thousand Wishes.",
+    inStock: true,
+  },
+  {
+    id: "sol-de-janeiro",
+    name: "Set Sol de Janeiro Delicia Drench",
+    price: 60,
+    image: img("photo_86"),
+    images: [img("photo_86")],
+    category: "cosmeticos",
+    description: "Set de cuidado corporal Sol de Janeiro: shower oil y body butter Delicia Drench, aroma Cheirosa 59.",
+    inStock: true,
+  },
+  {
+    id: "rubor-sheglam",
+    name: "Rubor / Labial Sheglam",
+    price: 12,
+    image: img("photo_98"),
+    images: [img("photo_98")],
+    category: "cosmeticos",
+    description: "Rubor en crema multiusos Sheglam, tono rojo cereza.",
+    inStock: true,
+  },
+]
+
+export const getProductById = (id: string): Product | undefined => {
+  return products.find((product) => product.id === id)
+}
+
+export const getProductsByCategory = (category: string): Product[] => {
+  if (category === "todos") {
+    return products
+  }
+  return products.filter((product) => product.category === category)
+}
+
+export const searchProducts = (query: string): Product[] => {
+  const lowercaseQuery = query.toLowerCase()
+  return products.filter(
+    (product) =>
+      product.name.toLowerCase().includes(lowercaseQuery) ||
+      product.description?.toLowerCase().includes(lowercaseQuery) ||
+      product.category.toLowerCase().includes(lowercaseQuery)
+  )
+}
+
+export function getDefaultProducts(): Product[] {
+  return products
+}
