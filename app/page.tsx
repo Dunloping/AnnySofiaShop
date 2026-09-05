@@ -12,9 +12,9 @@ import { useCatalogProducts } from "@/lib/catalog"
 const heroSlides = [
   {
     eyebrow: "Nueva colección",
-    title: "Nueva Colección Verano",
+    title: "Nueva Colección",
     subtitle: "Descubre las tendencias de la temporada que te harán brillar",
-    image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1920&h=1080&fit=crop",
+    image: "/productos/photo_60.jpg",
     cta: "Ver colección",
     link: "/tienda",
   },
@@ -22,7 +22,7 @@ const heroSlides = [
     eyebrow: "Ofertas especiales",
     title: "Hasta 30% de Descuento",
     subtitle: "Ofertas imperdibles en tu moda favorita. ¡Aprovechá antes que se agote!",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&h=1080&fit=crop",
+    image: "/productos/photo_40.jpg",
     cta: "Comprar ahora",
     link: "/tienda",
   },
@@ -30,7 +30,7 @@ const heroSlides = [
     eyebrow: "Envíos nacionales",
     title: "Envíos a Todo Venezuela",
     subtitle: "Recibe tus pedidos donde estés. Elegí entre envío o retiro en tienda.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1920&h=1080&fit=crop",
+    image: "/productos/photo_20.jpg",
     cta: "Más información",
     link: "/envios",
   },
@@ -66,11 +66,11 @@ function SectionHeader({
   return (
     <div className="text-center mb-12">
       {eyebrow && (
-        <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-luxe text-rose-600">
+        <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-luxe text-accent">
           {eyebrow}
         </span>
       )}
-      <h2 className="font-serif text-3xl md:text-4xl font-semibold text-gray-900 mb-4">
+      <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4">
         {title}
       </h2>
       {description && (
@@ -136,7 +136,7 @@ export default function HomePage() {
                   : "opacity-0 translate-y-6"
               }`}
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               {heroSlides[currentSlide].eyebrow}
             </span>
             <h1
@@ -167,7 +167,7 @@ export default function HomePage() {
               <Link href={heroSlides[currentSlide].link}>
                 <Button
                   size="xl"
-                  className="group w-full sm:w-auto btn-shine bg-white text-rose-700 hover:bg-rose-50"
+                  className="group w-full sm:w-auto btn-shine bg-white text-accent hover:bg-amber-50"
                 >
                   {heroSlides[currentSlide].cta}
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -211,11 +211,11 @@ export default function HomePage() {
               key={index}
               className="group flex items-center gap-4 p-6 rounded-2xl border border-border bg-card hover:shadow-luxe hover:-translate-y-0.5 transition-all duration-300"
             >
-              <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-rose-500/20">
+              <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-accent to-amber-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-accent/20">
                 <feature.icon className="h-7 w-7 text-white" />
               </div>
               <div>
-                <h3 className="font-display font-semibold text-gray-900">
+                <h3 className="font-display font-semibold text-foreground">
                   {feature.title}
                 </h3>
                 <p className="text-sm text-muted-foreground">{feature.description}</p>
@@ -262,7 +262,7 @@ export default function HomePage() {
                     </h3>
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-white/90 px-3 py-1.5 text-xs font-medium text-gray-900 backdrop-blur">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-white/90 px-3 py-1.5 text-xs font-medium text-foreground backdrop-blur">
                       Ver <ArrowRight className="h-3 w-3" />
                     </span>
                   </div>
@@ -277,10 +277,10 @@ export default function HomePage() {
       <section className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
           <div className="max-w-xl">
-            <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-luxe text-rose-600">
+            <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-luxe text-accent">
               Lo más vendido
             </span>
-            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-gray-900">
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground">
               Productos Destacados
             </h2>
             <p className="text-muted-foreground mt-2">
@@ -304,7 +304,7 @@ export default function HomePage() {
 
       {/* Promo banner */}
       <section className="container mx-auto px-4">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-rose-600 via-pink-600 to-rose-500 p-10 md:p-14 text-center text-white">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#1c1917] via-[#292524] to-accent p-10 md:p-14 text-center text-white">
           <div className="absolute -top-12 -right-12 h-48 w-48 rounded-full bg-white/10 blur-2xl" />
           <div className="absolute -bottom-12 -left-12 h-48 w-48 rounded-full bg-white/10 blur-2xl" />
           <div className="relative">
@@ -320,7 +320,7 @@ export default function HomePage() {
             <Link href="/tienda">
               <Button
                 size="xl"
-                className="rounded-full bg-white px-10 text-rose-700 hover:bg-rose-50 group"
+                className="rounded-full bg-white px-10 text-accent hover:bg-amber-50 group"
               >
                 Comprar ahora
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -334,10 +334,10 @@ export default function HomePage() {
       <section className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
           <div className="max-w-xl">
-            <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-luxe text-rose-600">
+            <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-luxe text-accent">
               Recién llegados
             </span>
-            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-gray-900">
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground">
               Nuevos Llegados
             </h2>
             <p className="text-muted-foreground mt-2">
@@ -361,8 +361,8 @@ export default function HomePage() {
 
       {/* Instagram CTA */}
       <section className="bg-[#0f0f0f] py-20 relative overflow-hidden">
-        <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-rose-600/20 blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-pink-600/20 blur-3xl" />
+        <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-accent/20 blur-3xl" />
+        <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-amber-500/20 blur-3xl" />
         <div className="container mx-auto px-4 text-center relative">
           <Instagram className="h-12 w-12 text-white mx-auto mb-6" />
           <h2 className="font-serif text-3xl md:text-5xl text-white mb-4">
@@ -379,7 +379,7 @@ export default function HomePage() {
           >
             <Button
               size="xl"
-              className="bg-gradient-to-r from-fuchsia-500 via-pink-500 to-rose-500 hover:opacity-90 text-white group rounded-full px-10"
+              className="bg-gradient-to-r from-accent via-amber-500 to-amber-600 hover:opacity-90 text-white group rounded-full px-10"
             >
               <Instagram className="mr-2 h-5 w-5" />
               @annysofiashop
@@ -406,13 +406,17 @@ export default function HomePage() {
 
       {/* WhatsApp CTA */}
       <section className="container mx-auto px-4">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-green-600 to-emerald-700 p-8 md:p-14 flex flex-col md:flex-row items-center gap-8 text-white">
-          <div className="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-white/10 blur-2xl" />
+        <div className="relative overflow-hidden rounded-3xl border border-border bg-[#0f0f0f] p-8 md:p-14 flex flex-col md:flex-row items-center gap-8 text-white">
+          <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-accent/20 blur-3xl" />
+          <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-amber-500/10 blur-3xl" />
           <div className="flex-1 relative">
+            <span className="mb-3 inline-block rounded-full bg-accent/15 px-4 py-1 text-xs font-semibold uppercase tracking-luxe text-accent">
+              Ayuda personalizada
+            </span>
             <h2 className="font-serif text-3xl md:text-4xl mb-4">
-              ¿Tienes preguntas? 💬
+              ¿Tienes preguntas?
             </h2>
-            <p className="text-green-50/90 mb-8 max-w-md">
+            <p className="text-white/60 mb-8 max-w-md">
               Nuestro equipo está listo para ayudarte. Escríbenos por WhatsApp y
               te atenderemos lo antes posible.
             </p>
@@ -423,7 +427,7 @@ export default function HomePage() {
             >
               <Button
                 size="xl"
-                className="bg-white text-green-700 hover:bg-green-50 group rounded-full px-8"
+                className="bg-accent text-white hover:bg-amber-600 group rounded-full px-8"
               >
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Escribir por WhatsApp
@@ -431,8 +435,8 @@ export default function HomePage() {
             </a>
           </div>
           <div className="flex-shrink-0 relative">
-            <div className="h-36 w-36 rounded-full bg-white/10 flex items-center justify-center">
-              <MessageCircle className="h-20 w-20 text-white/80" />
+            <div className="h-36 w-36 rounded-full bg-white/5 flex items-center justify-center ring-1 ring-white/10">
+              <MessageCircle className="h-20 w-20 text-accent" />
             </div>
           </div>
         </div>

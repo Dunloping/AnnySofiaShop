@@ -9,10 +9,10 @@ export default function NotFound() {
     <div className="container mx-auto px-4 py-16 text-center">
       <div className="max-w-md mx-auto">
         <span className="text-8xl mb-6 block">🔍</span>
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
+        <h1 className="text-4xl font-bold text-foreground mb-4">
           Página no encontrada
         </h1>
-        <p className="text-gray-500 mb-8">
+        <p className="text-muted-foreground mb-8">
           Lo sentimos, la página que buscas no existe o ha sido movida.
         </p>
         <Link href="/">

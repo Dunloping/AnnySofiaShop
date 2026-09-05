@@ -9,10 +9,10 @@ export default function DevolucionesPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="text-center mb-12">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
           Política de Devoluciones y Cambios
         </h1>
-        <p className="text-gray-500 max-w-2xl mx-auto">
+        <p className="text-muted-foreground max-w-2xl mx-auto">
           Queremos que estés satisfecha con tu compra. Conoce nuestras políticas
           de devolución y cambio.
         </p>
@@ -22,11 +22,11 @@ export default function DevolucionesPage() {
         {/* Changes */}
         <Card>
           <CardContent className="p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
               <Check className="h-5 w-5 text-green-600" />
               Cambios
             </h2>
-            <div className="space-y-3 text-gray-600">
+            <div className="space-y-3 text-foreground/60">
               <p>
                 Aceptamos cambios dentro de los primeros{" "}
                 <strong>7 días</strong> posteriores a la recepción del pedido.
@@ -47,11 +47,11 @@ export default function DevolucionesPage() {
         {/* Returns */}
         <Card>
           <CardContent className="p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
               <ArrowLeft className="h-5 w-5 text-rose-600" />
               Devoluciones
             </h2>
-            <div className="space-y-3 text-gray-600">
+            <div className="space-y-3 text-foreground/60">
               <p>
                 Las devoluciones se realizan únicamente si el producto presenta{" "}
                 <strong>defectos de fabricación</strong>.
@@ -72,11 +72,11 @@ export default function DevolucionesPage() {
         {/* Non-returnable items */}
         <Card>
           <CardContent className="p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
               <X className="h-5 w-5 text-red-600" />
               Productos no elegibles para devolución
             </h2>
-            <div className="space-y-3 text-gray-600">
+            <div className="space-y-3 text-foreground/60">
               <p>No se aceptan devoluciones en los siguientes casos:</p>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Productos usados o lavados</li>
@@ -92,10 +92,10 @@ export default function DevolucionesPage() {
         {/* Process */}
         <Card>
           <CardContent className="p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">
+            <h2 className="text-xl font-bold text-foreground mb-4">
               ¿Cómo solicitar un cambio o devolución?
             </h2>
-            <div className="space-y-4 text-gray-600">
+            <div className="space-y-4 text-foreground/60">
               <div className="flex gap-3">
                 <span className="h-6 w-6 bg-rose-600 text-white rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold">
                   1
@@ -137,7 +137,7 @@ export default function DevolucionesPage() {
 
         {/* Contact */}
         <div className="text-center">
-          <p className="text-gray-500 mb-4">
+          <p className="text-muted-foreground mb-4">
             ¿Tienes alguna duda sobre nuestra política de devoluciones?
           </p>
           <a
@@ -145,7 +145,7 @@ export default function DevolucionesPage() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button className="bg-green-600 hover:bg-green-700">
+            <Button className="bg-accent hover:bg-amber-600">
               <MessageCircle className="h-4 w-4 mr-2" />
               Contactar por WhatsApp
             </Button>

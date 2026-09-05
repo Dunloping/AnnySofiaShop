@@ -77,7 +77,7 @@ export function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
       aria-label="Buscar productos"
     >
       <div
-        className="w-full max-w-2xl overflow-hidden rounded-2xl bg-white shadow-luxe animate-fade-up"
+        className="w-full max-w-2xl overflow-hidden rounded-2xl bg-card shadow-luxe animate-fade-up"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search input */}
@@ -112,7 +112,7 @@ export function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
           ) : results.length === 0 ? (
             <div className="flex flex-col items-center gap-2 px-4 py-10 text-center">
               <PackageSearch className="h-10 w-10 text-muted" />
-              <p className="font-medium text-gray-900">Sin resultados</p>
+              <p className="font-medium text-foreground">Sin resultados</p>
               <p className="text-sm text-muted-foreground">
                 No encontramos nada para &quot;{debouncedQuery}&quot;
               </p>
@@ -135,14 +135,14 @@ export function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
                       />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="truncate text-sm font-medium text-gray-900">
+                      <p className="truncate text-sm font-medium text-foreground">
                         {product.name}
                       </p>
-                      <p className="text-xs uppercase tracking-wide text-rose-600">
+                      <p className="text-xs uppercase tracking-wide text-accent">
                         {product.category}
                       </p>
                     </div>
-                    <span className="flex-shrink-0 text-sm font-semibold text-gray-900">
+                    <span className="flex-shrink-0 text-sm font-semibold text-foreground">
                       {formatPrice(product.price)}
                     </span>
                     <ArrowRight className="h-4 w-4 flex-shrink-0 text-muted-foreground" />
@@ -154,7 +154,7 @@ export function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
                   <Link
                     href={`/tienda?search=${encodeURIComponent(debouncedQuery)}`}
                     onClick={onClose}
-                    className="text-sm font-medium text-rose-600 hover:underline"
+                    className="text-sm font-medium text-accent hover:underline"
                   >
                     Ver todos los resultados
                   </Link>

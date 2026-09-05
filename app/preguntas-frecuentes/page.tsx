@@ -67,10 +67,10 @@ export default function PreguntasFrecuentesPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="text-center mb-12">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
           Preguntas Frecuentes
         </h1>
-        <p className="text-gray-500 max-w-2xl mx-auto">
+        <p className="text-muted-foreground max-w-2xl mx-auto">
           Encuentra respuestas a las preguntas más comunes sobre nuestros
           productos, envíos y políticas.
         </p>
@@ -81,19 +81,19 @@ export default function PreguntasFrecuentesPage() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-gray-200 rounded-xl overflow-hidden"
+              className="border border-border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors"
+                className="w-full flex items-center justify-between p-4 text-left hover:bg-secondary transition-colors"
               >
-                <span className="font-medium text-gray-900 pr-4">
+                <span className="font-medium text-foreground pr-4">
                   {faq.question}
                 </span>
                 {openIndex === index ? (
-                  <ChevronUp className="h-5 w-5 text-gray-500 flex-shrink-0" />
+                  <ChevronUp className="h-5 w-5 text-muted-foreground flex-shrink-0" />
                 ) : (
-                  <ChevronDown className="h-5 w-5 text-gray-500 flex-shrink-0" />
+                  <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
                 )}
               </button>
               <div
@@ -102,7 +102,7 @@ export default function PreguntasFrecuentesPage() {
                   openIndex === index ? "max-h-96" : "max-h-0"
                 )}
               >
-                <div className="p-4 pt-0 text-gray-600">
+                <div className="p-4 pt-0 text-foreground/60">
                   {faq.answer}
                 </div>
               </div>

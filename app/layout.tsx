@@ -1,20 +1,19 @@
 import type { Metadata } from "next"
-import { Inter, Playfair_Display, Jost } from "next/font/google"
+import { Manrope, Fraunces } from "next/font/google"
 import "./globals.css"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { CartProvider } from "@/components/cart-provider"
 import { CartSidebar } from "@/components/cart-sidebar"
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
-const playfair = Playfair_Display({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-serif",
+  variable: "--font-sans",
   display: "swap",
 })
-const jost = Jost({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-serif",
   display: "swap",
 })
 
@@ -47,7 +46,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={`${inter.variable} ${playfair.variable} ${jost.variable} font-sans antialiased`}>
+      <body className={`${manrope.variable} ${fraunces.variable} font-sans antialiased`}>
         <CartProvider>
           <div className="flex min-h-screen flex-col">
             <Header />

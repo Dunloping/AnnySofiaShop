@@ -64,12 +64,12 @@ export function ProductCard({
           {/* Badges */}
           <div className="absolute top-3 left-3 flex flex-col gap-2">
             {discount > 0 && (
-              <span className="rounded-full bg-rose-600 px-2.5 py-1 text-[11px] font-semibold text-white shadow-sm">
+              <span className="rounded-full bg-accent px-2.5 py-1 text-[11px] font-semibold text-white shadow-sm">
                 -{discount}%
               </span>
             )}
             {isNew ? (
-              <span className="rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-semibold text-rose-700 shadow-sm backdrop-blur">
+              <span className="rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-semibold text-foreground shadow-sm backdrop-blur">
                 Nuevo
               </span>
             ) : null}
@@ -86,7 +86,7 @@ export function ProductCard({
           >
             <button
               onClick={handleAddToCart}
-              className="btn-shine flex w-full items-center justify-center gap-2 rounded-full bg-gray-900/90 py-2.5 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-gray-900"
+              className="btn-shine flex w-full items-center justify-center gap-2 rounded-full bg-accent py-2.5 text-sm font-medium text-accent-foreground backdrop-blur transition-colors hover:bg-gold-400"
             >
               <ShoppingCart className="h-4 w-4" />
               Agregar
@@ -97,24 +97,24 @@ export function ProductCard({
         {/* Info */}
         <div className="flex flex-1 flex-col p-3.5">
           <div className="flex items-center justify-between mb-1">
-            <p className="text-[11px] font-medium uppercase tracking-wide text-rose-600">
+            <p className="text-[11px] font-medium uppercase tracking-wide text-accent">
               {product.category}
             </p>
             <button
               onClick={handleToggleFavorite}
               aria-label="Favorito"
-              className="text-muted-foreground transition-colors hover:text-rose-600"
+              className="text-muted-foreground transition-colors hover:text-accent"
             >
               <Heart
                 className={cn(
                   "h-4 w-4",
-                  isFavorite && "fill-rose-600 text-rose-600"
+                  isFavorite && "fill-accent text-accent"
                 )}
               />
             </button>
           </div>
 
-          <h3 className="font-display text-sm font-medium text-gray-900 line-clamp-1 group-hover:text-rose-700 transition-colors">
+          <h3 className="font-display text-sm font-medium text-foreground line-clamp-1 group-hover:text-accent transition-colors">
             {product.name}
           </h3>
 
@@ -138,7 +138,7 @@ export function ProductCard({
           </div>
 
           <div className="mt-auto flex items-baseline gap-2 pt-2.5">
-            <span className="font-serif text-lg font-semibold text-gray-900">
+            <span className="font-serif text-lg font-semibold text-foreground">
               {formatPrice(discountedPrice)}
             </span>
             {discount > 0 && (

@@ -7,18 +7,18 @@ import { Product } from "./store"
 const img = (name: string) => `/productos/${name}.jpg`
 
 export const categories = [
-  { id: "todos", name: "Todos", icon: "✨", image: img("photo_30") },
-  { id: "llaveros", name: "Llaveros", icon: "🔑", image: img("photo_1") },
-  { id: "blusas", name: "Blusas", icon: "👚", image: img("photo_100") },
-  { id: "tops", name: "Tops", icon: "🎽", image: img("photo_70") },
-  { id: "camisetas", name: "Camisetas", icon: "👕", image: img("photo_21") },
-  { id: "vestidos", name: "Vestidos", icon: "👗", image: img("photo_60") },
-  { id: "bodys", name: "Bodys", icon: "🩱", image: img("photo_28") },
-  { id: "bikinis", name: "Bikinis", icon: "👙", image: img("photo_96") },
-  { id: "pantalones", name: "Pantalones", icon: "👖", image: img("photo_90") },
-  { id: "abrigos", name: "Abrigos", icon: "🧥", image: img("photo_29") },
-  { id: "accesorios", name: "Accesorios", icon: "👜", image: img("photo_78") },
-  { id: "cosmeticos", name: "Cosméticos", icon: "💄", image: img("photo_86") },
+  { id: "todos", name: "Todos", icon: "Sparkles", image: img("photo_30") },
+  { id: "llaveros", name: "Llaveros", icon: "KeyRound", image: img("photo_1") },
+  { id: "blusas", name: "Blusas", icon: "Shirt", image: img("photo_100") },
+  { id: "tops", name: "Tops", icon: "ShoppingBag", image: img("photo_70") },
+  { id: "camisetas", name: "Camisetas", icon: "Shirt", image: img("photo_21") },
+  { id: "vestidos", name: "Vestidos", icon: "Layers", image: img("photo_60") },
+  { id: "bodys", name: "Bodys", icon: "Bath", image: img("photo_28") },
+  { id: "bikinis", name: "Bikinis", icon: "Waves", image: img("photo_96") },
+  { id: "pantalones", name: "Pantalones", icon: "Layers", image: img("photo_90") },
+  { id: "abrigos", name: "Abrigos", icon: "Archive", image: img("photo_29") },
+  { id: "accesorios", name: "Accesorios", icon: "ShoppingBag", image: img("photo_78") },
+  { id: "cosmeticos", name: "Cosméticos", icon: "Gem", image: img("photo_86") },
 ]
 
 export const products: Product[] = [
@@ -166,6 +166,8 @@ export const products: Product[] = [
     category: "camisetas",
     description: "Jersey deportivo estilo universitario con estampado Los Angeles. Colores: verde, negro, blanco, beige.",
     sizes: ["S", "M", "L"],
+    colors: ["Verde", "Negro", "Blanco", "Beige"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
 
@@ -179,6 +181,7 @@ export const products: Product[] = [
     category: "abrigos",
     description: "Suéter tejido a rayas blanco/negro con botones decorativos en el hombro.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
 
@@ -192,6 +195,7 @@ export const products: Product[] = [
     category: "bikinis",
     description: "Bikini de dos piezas con estampado animal print y ajuste al cuerpo.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
 
@@ -205,6 +209,8 @@ export const products: Product[] = [
     category: "vestidos",
     description: "Vestido mini con estampado leopardo y mangas largas semitransparentes.",
     sizes: ["S", "M", "L"],
+    colors: ["Leopardo", "Mocca"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
 
@@ -218,6 +224,8 @@ export const products: Product[] = [
     category: "blusas",
     description: "Blusa de satén con moño y vuelos en las mangas. Tono champán.",
     sizes: ["S", "M", "L"],
+    colors: ["Beige", "Rosa"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -229,6 +237,7 @@ export const products: Product[] = [
     category: "blusas",
     description: "Blusa rosa de satén con moño y mangas con vuelo.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
 
@@ -242,6 +251,7 @@ export const products: Product[] = [
     category: "tops",
     description: "Top asimétrico bicolor con cuello alto. Negro y beige.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -253,6 +263,7 @@ export const products: Product[] = [
     category: "tops",
     description: "Top de manga larga con cuello alto y efecto mármol azul.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -264,6 +275,7 @@ export const products: Product[] = [
     category: "tops",
     description: "Top de manga larga con estampado floral lila y cuello bandana.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -275,6 +287,7 @@ export const products: Product[] = [
     category: "tops",
     description: "Top de manga larga con cuello alto y efecto mármol chocolate.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -286,6 +299,7 @@ export const products: Product[] = [
     category: "tops",
     description: "Top de manga larga con cuello alto y estampado mar azul.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -297,6 +311,7 @@ export const products: Product[] = [
     category: "tops",
     description: "Top transparente de encaje con diseño floral. Incluye top tono a tono.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -308,6 +323,7 @@ export const products: Product[] = [
     category: "tops",
     description: "Top transparente con lunares y cuello alto. Negro.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -319,6 +335,7 @@ export const products: Product[] = [
     category: "tops",
     description: "Top transparente negro de manga larga con cuello alto.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -330,6 +347,7 @@ export const products: Product[] = [
     category: "tops",
     description: "Blusa rosa con escote en V y lazos ajustables. Falda blanca de mezclilla.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -341,6 +359,7 @@ export const products: Product[] = [
     category: "tops",
     description: "Top de punto con un hombro y moños en satén burgundy.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
 
@@ -354,6 +373,7 @@ export const products: Product[] = [
     category: "camisetas",
     description: "Camiseta de algodón con estampado Beagles. Varios colores.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -365,6 +385,7 @@ export const products: Product[] = [
     category: "camisetas",
     description: "Camiseta de algodón con estampado Mamá Más Bonita.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -376,6 +397,7 @@ export const products: Product[] = [
     category: "camisetas",
     description: "Camiseta con estampado Manhattan NYC.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -387,6 +409,7 @@ export const products: Product[] = [
     category: "camisetas",
     description: "Camiseta de algodón con estampado I Love NY y osito.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -398,6 +421,7 @@ export const products: Product[] = [
     category: "camisetas",
     description: "Camiseta con estampado DOG y perrito.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -409,6 +433,7 @@ export const products: Product[] = [
     category: "camisetas",
     description: "Camiseta de algodón con estampado Rock & Roll con brillos.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -420,6 +445,7 @@ export const products: Product[] = [
     category: "camisetas",
     description: "Camiseta con estampado Mickey y Los Angeles.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -431,6 +457,7 @@ export const products: Product[] = [
     category: "camisetas",
     description: "Camiseta de algodón con estampado Peace & Love.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -442,6 +469,7 @@ export const products: Product[] = [
     category: "camisetas",
     description: "Camiseta de algodón con estampado Iced Coffee Club.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -453,6 +481,7 @@ export const products: Product[] = [
     category: "camisetas",
     description: "Camiseta de algodón con estampado 1997 California.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -464,6 +493,7 @@ export const products: Product[] = [
     category: "camisetas",
     description: "Camiseta con diseño de lentejuelas y apliques. Rosa y negro.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
 
@@ -477,6 +507,7 @@ export const products: Product[] = [
     category: "abrigos",
     description: "Chaleco tipo camisa con botones. Crema, mostaza, negro, burdeos, beige.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -488,6 +519,7 @@ export const products: Product[] = [
     category: "abrigos",
     description: "Chaleco con botones en negro y camel.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -499,6 +531,7 @@ export const products: Product[] = [
     category: "abrigos",
     description: "Chaleco con estampado animal print y botones.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -510,6 +543,7 @@ export const products: Product[] = [
     category: "abrigos",
     description: "Chaleco de punto con diseño geométrico. Negro, beige y blanco.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
 
@@ -523,6 +557,8 @@ export const products: Product[] = [
     category: "bodys",
     description: "Body de canelón con mangas de vuelo. Negro, blanco y marrón.",
     sizes: ["S", "M", "L"],
+    colors: ["Negro", "Blanco", "Marrón"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
   {
@@ -534,6 +570,7 @@ export const products: Product[] = [
     category: "bodys",
     description: "Body básico de un solo hombro. Naranja, amarillo, rojo y rosa.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
 
@@ -547,6 +584,7 @@ export const products: Product[] = [
     category: "blusas",
     description: "Camisa de manga corta con botones de corazón. Rosa, azul, negro y verde.",
     sizes: ["S", "M", "L"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
 
@@ -560,6 +598,8 @@ export const products: Product[] = [
     category: "bikinis",
     description: "Conjunto deportivo rojo: top asimétrico y short.",
     sizes: ["S", "M", "L"],
+    colors: ["Rojo", "Negro", "Blanco"],
+    inventory: { S: 10, M: 10, L: 10 },
     inStock: true,
   },
 

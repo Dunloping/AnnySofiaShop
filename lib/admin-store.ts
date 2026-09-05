@@ -13,6 +13,7 @@ interface AdminState {
   updateProduct: (id: string, updates: Partial<Product>) => void
   resetProduct: (id: string) => void
   resetAll: () => void
+  isModified: (id: string) => boolean
   getAllProducts: () => Product[]
 }
 
@@ -39,12 +40,15 @@ export const useAdmin = create<AdminState>()(
 
       resetAll: () => set({ overrides: {} }),
 
+      isModified: (id) => Boolean(get().overrides[id]),
+
       getAllProducts: () => {
         const { overrides } = get()
         return getDefaultProducts().map((product) => ({
           ...product,
           ...overrides[product.id],
           images: overrides[product.id]?.images ?? product.images,
+          sizes: overrides[product.id]?.sizes ?? product.sizes,
         }))
       },
     }),

@@ -42,12 +42,12 @@ export function Header() {
       </div>
 
       {/* Main header */}
-      <div className="border-b border-border bg-white/90 backdrop-blur-md supports-[backdrop-filter]:bg-white/70">
+      <div className="border-b border-border bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
             {/* Mobile menu button */}
             <button
-              className="md:hidden -ml-2 p-2 text-gray-700 hover:bg-muted rounded-lg transition-colors"
+              className="md:hidden -ml-2 p-2 text-foreground/80 hover:bg-muted rounded-lg transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
             >
@@ -57,8 +57,8 @@ export function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group">
               <div className="flex flex-col items-center leading-none">
-                <span className="font-serif text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-rose-700 transition-colors">
-                  Anny<span className="text-rose-600">Sofia</span>
+                <span className="font-serif text-2xl font-semibold tracking-tight text-foreground group-hover:text-accent transition-colors">
+                  Anny<span className="text-accent">Sofia</span>
                 </span>
                 <span className="mt-0.5 text-[10px] font-semibold uppercase tracking-luxe text-muted-foreground">
                   Shop
@@ -73,12 +73,12 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "text-sm font-medium text-gray-700 hover:text-rose-600 transition-colors relative group",
+                    "text-sm font-medium text-foreground/80 hover:text-accent transition-colors relative group",
                     link.label === "Admin" && "text-muted-foreground"
                   )}
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-rose-600 transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-accent transition-all duration-300 group-hover:w-full" />
                 </Link>
               ))}
             </nav>
@@ -89,7 +89,7 @@ export function Header() {
             <button
               onClick={() => setIsSearchOpen(true)}
               aria-label="Buscar"
-              className="flex h-9 w-9 items-center justify-center rounded-full text-gray-600 hover:bg-muted transition-colors"
+              className="flex h-9 w-9 items-center justify-center rounded-full text-foreground/70 hover:bg-muted transition-colors"
             >
               <Search className="h-[18px] w-[18px]" />
             </button>
@@ -99,7 +99,7 @@ export function Header() {
               href="https://www.instagram.com/annysofiashop"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex h-9 w-9 items-center justify-center rounded-full text-gray-600 hover:bg-muted transition-colors"
+              className="hidden sm:flex h-9 w-9 items-center justify-center rounded-full text-foreground/70 hover:bg-muted transition-colors"
             >
               <Instagram className="h-[18px] w-[18px]" />
             </a>
@@ -109,7 +109,7 @@ export function Header() {
               href="https://wa.me/584141234567"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex h-9 w-9 items-center justify-center rounded-full text-gray-600 hover:bg-muted transition-colors"
+              className="hidden sm:flex h-9 w-9 items-center justify-center rounded-full text-foreground/70 hover:bg-muted transition-colors"
             >
               <MessageCircle className="h-[18px] w-[18px]" />
             </a>
@@ -118,11 +118,11 @@ export function Header() {
             <button
               onClick={openCart}
               aria-label="Abrir carrito"
-              className="relative flex h-9 w-9 items-center justify-center rounded-full text-gray-700 hover:bg-muted transition-colors"
+              className="relative flex h-9 w-9 items-center justify-center rounded-full text-foreground/80 hover:bg-muted transition-colors"
             >
               <ShoppingCart className="h-[18px] w-[18px]" />
               {totalItems > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 h-4.5 min-w-4.5 rounded-full bg-rose-600 px-1 text-[11px] font-semibold leading-4 text-white animate-bounce-in">
+                <span className="absolute -top-0.5 -right-0.5 h-4.5 min-w-4.5 rounded-full bg-accent px-1 text-[11px] font-semibold leading-4 text-white animate-bounce-in">
                   {totalItems}
                 </span>
               )}
@@ -144,7 +144,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="block py-3 px-4 text-gray-700 hover:bg-rose-50 hover:text-rose-600 rounded-lg transition-colors font-medium"
+              className="block py-3 px-4 text-foreground/80 hover:bg-muted hover:text-accent rounded-lg transition-colors font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               {link.label}
@@ -155,7 +155,7 @@ export function Header() {
               href="https://www.instagram.com/annysofiashop"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-600 hover:text-rose-600"
+              className="flex items-center gap-2 text-foreground/70 hover:text-accent"
             >
               <Instagram className="h-5 w-5" />
               <span>Instagram</span>
@@ -164,7 +164,7 @@ export function Header() {
               href="https://wa.me/584141234567"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-600 hover:text-rose-600"
+              className="flex items-center gap-2 text-foreground/70 hover:text-accent"
             >
               <MessageCircle className="h-5 w-5" />
               <span>WhatsApp</span>

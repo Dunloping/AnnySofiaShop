@@ -1,7 +1,8 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
-import { Instagram, MessageCircle, Mail, MapPin, Phone, ArrowRight } from "lucide-react"
+import { Instagram, MessageCircle, Mail, MapPin, Phone, ArrowRight, Check } from "lucide-react"
 
 const footerLinks = {
   tienda: [
@@ -19,34 +20,61 @@ const footerLinks = {
 }
 
 export function Footer() {
+  const [email, setEmail] = useState("")
+  const [subscribed, setSubscribed] = useState(false)
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!email.trim()) return
+    try {
+      const existing = JSON.parse(localStorage.getItem("annysofia-subscribers") || "[]")
+      if (!existing.includes(email)) {
+        existing.push(email)
+        localStorage.setItem("annysofia-subscribers", JSON.stringify(existing))
+      }
+    } catch {}
+    setSubscribed(true)
+    setEmail("")
+  }
+
   return (
     <footer className="border-t border-border bg-[#0f0f0f] text-white">
       {/* Newsletter */}
-      <div className="bg-gradient-to-r from-rose-600 to-pink-600">
+      <div className="bg-gradient-to-r from-accent to-amber-600">
         <div className="container mx-auto px-4 py-14">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             <div className="text-center lg:text-left">
               <h3 className="font-serif text-3xl font-semibold text-white mb-2">
                 Únete a nuestra comunidad
               </h3>
-              <p className="text-rose-100">
+              <p className="text-white/80">
                 Recibe ofertas exclusivas y novedades antes que nadie
               </p>
             </div>
-            <form className="flex w-full lg:w-auto gap-2">
-              <input
-                type="email"
-                placeholder="Tu email"
-                className="flex-1 lg:w-72 rounded-full border border-white/30 bg-white/10 px-5 py-3 text-white placeholder:text-rose-100 focus:outline-none focus:ring-2 focus:ring-white focus:bg-white/20 transition-all"
-              />
-              <button
-                type="submit"
-                className="group inline-flex items-center gap-2 rounded-full bg-gray-900 px-6 py-3 font-medium text-white transition-colors hover:bg-gray-800"
-              >
-                Suscribirme
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </form>
+            {subscribed ? (
+              <div className="flex items-center gap-2 rounded-full bg-white/10 px-6 py-3">
+                <Check className="h-5 w-5 text-white" />
+                <span className="font-medium text-white">¡Suscrito!</span>
+              </div>
+            ) : (
+              <form onSubmit={handleSubscribe} className="flex w-full lg:w-auto gap-2">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  placeholder="Tu email"
+                  className="flex-1 lg:w-72 rounded-full border border-white/30 bg-white/10 px-5 py-3 text-white placeholder:text-white/80 focus:outline-none focus:ring-2 focus:ring-white focus:bg-white/20 transition-all"
+                />
+                <button
+                  type="submit"
+                  className="group inline-flex items-center gap-2 rounded-full bg-gray-900 px-6 py-3 font-medium text-white transition-colors hover:bg-gray-800"
+                >
+                  Suscribirme
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>
@@ -58,7 +86,7 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" className="inline-block">
               <span className="font-serif text-3xl font-semibold text-white">
-                Anny<span className="text-rose-500">Sofia</span>
+                Anny<span className="text-accent">Sofia</span>
               </span>
               <span className="block text-[11px] font-semibold uppercase tracking-luxe text-white/50">
                 Shop
@@ -73,7 +101,7 @@ export function Footer() {
                 href="https://www.instagram.com/annysofiashop"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 transition-colors hover:bg-rose-600 hover:text-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 transition-colors hover:bg-accent hover:text-white"
               >
                 <Instagram className="h-5 w-5" />
               </a>
@@ -81,13 +109,13 @@ export function Footer() {
                 href="https://wa.me/584141234567"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 transition-colors hover:bg-rose-600 hover:text-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 transition-colors hover:bg-accent hover:text-white"
               >
                 <MessageCircle className="h-5 w-5" />
               </a>
               <a
                 href="mailto:info@annysofiashop.com"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 transition-colors hover:bg-rose-600 hover:text-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 transition-colors hover:bg-accent hover:text-white"
               >
                 <Mail className="h-5 w-5" />
               </a>
@@ -139,15 +167,15 @@ export function Footer() {
             </h4>
             <ul className="space-y-3 text-sm text-white/60">
               <li className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-rose-500" />
+                <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
                 <span>Urb. La Coromoto Av 40, Venezuela</span>
               </li>
               <li className="flex items-start gap-3">
-                <Phone className="mt-0.5 h-5 w-5 flex-shrink-0 text-rose-500" />
+                <Phone className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
                 <span>+58 414 123 4567</span>
               </li>
               <li className="flex items-start gap-3">
-                <Mail className="mt-0.5 h-5 w-5 flex-shrink-0 text-rose-500" />
+                <Mail className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
                 <span>info@annysofiashop.com</span>
               </li>
             </ul>
@@ -161,7 +189,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/50">
             <p>© {new Date().getFullYear()} AnnySofiaShop. Todos los derechos reservados.</p>
             <p className="flex items-center gap-1">
-              Hecho con <span className="text-rose-500">❤️</span> en Venezuela
+              Hecho con <span className="text-accent">❤️</span> en Venezuela
             </p>
           </div>
         </div>

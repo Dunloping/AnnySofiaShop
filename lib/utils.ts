@@ -6,10 +6,9 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatPrice(price: number): string {
-  return new Intl.NumberFormat("es-VE", {
-    style: "currency",
-    currency: "USD",
-  }).format(price)
+  // Formato estable entre server y client (evita hydration mismatch con Intl)
+  const value = Number.isInteger(price) ? price.toString() : price.toFixed(2)
+  return `$${value}`
 }
 
 export function formatPriceWithDiscount(

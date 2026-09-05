@@ -12,10 +12,10 @@ export default function CategoriasPage() {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-14">
-        <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-luxe text-rose-600">
+        <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-luxe text-accent">
           Explora
         </span>
-        <h1 className="font-serif text-4xl md:text-5xl font-semibold text-gray-900 mb-4">
+        <h1 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-4">
           Categorías
         </h1>
         <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -52,7 +52,7 @@ export default function CategoriasPage() {
                   </h2>
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="inline-flex items-center gap-1 rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-gray-900 backdrop-blur">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-foreground backdrop-blur">
                     Ver productos <ArrowRight className="h-4 w-4" />
                   </span>
                 </div>

@@ -8,9 +8,9 @@ interface CartContextType {
   isOpen: boolean
   openCart: () => void
   closeCart: () => void
-  addItem: (product: any, quantity?: number) => void
-  removeItem: (productId: string) => void
-  updateQuantity: (productId: string, quantity: number) => void
+  addItem: (product: any, quantity?: number, selectedSize?: string, selectedColor?: string) => void
+  removeItem: (productId: string, selectedSize?: string) => void
+  updateQuantity: (productId: string, quantity: number, selectedSize?: string) => void
   clearCart: () => void
   getTotalItems: () => number
   getTotalPrice: () => number

@@ -53,7 +53,7 @@ export function CartSidebar() {
       {/* Sidebar */}
       <div
         className={cn(
-          "fixed inset-y-0 right-0 z-50 w-full max-w-md bg-white shadow-xl transform transition-transform duration-300 ease-in-out",
+          "fixed inset-y-0 right-0 z-50 w-full max-w-md bg-card shadow-xl transform transition-transform duration-300 ease-in-out",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -61,15 +61,15 @@ export function CartSidebar() {
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b">
             <div className="flex items-center gap-2">
-              <ShoppingBag className="h-6 w-6 text-rose-600" />
+              <ShoppingBag className="h-6 w-6 text-accent" />
               <h2 className="text-lg font-semibold">Mi Carrito</h2>
-              <span className="text-sm text-gray-500">
+              <span className="text-sm text-muted-foreground">
                 ({getTotalItems()} {getTotalItems() === 1 ? "artículo" : "artículos"})
               </span>
             </div>
             <button
               onClick={closeCart}
-              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              className="p-2 hover:bg-secondary rounded-lg transition-colors"
             >
               <X className="h-5 w-5" />
             </button>
@@ -80,13 +80,13 @@ export function CartSidebar() {
             {items.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full text-center">
                 <ShoppingBag className="h-16 w-16 text-gray-300 mb-4" />
-                <h3 className="text-lg font-medium text-gray-900 mb-2">
+                <h3 className="text-lg font-medium text-foreground mb-2">
                   Tu carrito está vacío
                 </h3>
-                <p className="text-gray-500 mb-6">
+                <p className="text-muted-foreground mb-6">
                   ¡Explora nuestra tienda y encuentra algo que te encante!
                 </p>
-                <Button onClick={closeCart} className="bg-rose-600 hover:bg-rose-700">
+                <Button onClick={closeCart} className="bg-accent hover:bg-amber-600">
                   <Link href="/tienda">Ir a la tienda</Link>
                 </Button>
               </div>
@@ -94,7 +94,7 @@ export function CartSidebar() {
               items.map((item) => (
                 <div
                   key={`${item.id}-${item.selectedSize}-${item.selectedColor}`}
-                  className="flex gap-4 p-3 bg-gray-50 rounded-lg"
+                  className="flex gap-4 p-3 bg-secondary rounded-lg"
                 >
                   {/* Product image */}
                   <div className="relative h-20 w-20 flex-shrink-0 rounded-lg overflow-hidden bg-gray-200">
@@ -108,17 +108,17 @@ export function CartSidebar() {
 
                   {/* Product info */}
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-medium text-gray-900 line-clamp-1">
+                    <h3 className="font-medium text-foreground line-clamp-1">
                       {item.name}
                     </h3>
                     {(item.selectedSize || item.selectedColor) && (
-                      <p className="text-sm text-gray-500 mt-1">
+                      <p className="text-sm text-muted-foreground mt-1">
                         {item.selectedSize && `Talla: ${item.selectedSize}`}
                         {item.selectedSize && item.selectedColor && " • "}
                         {item.selectedColor && `Color: ${item.selectedColor}`}
                       </p>
                     )}
-                    <p className="text-rose-600 font-semibold mt-1">
+                    <p className="text-accent font-semibold mt-1">
                       {formatPrice(item.price)}
                     </p>
 
@@ -126,9 +126,9 @@ export function CartSidebar() {
                     <div className="flex items-center gap-2 mt-2">
                       <button
                         onClick={() =>
-                          updateQuantity(item.id, item.quantity - 1)
+                          updateQuantity(item.id, item.quantity - 1, item.selectedSize)
                         }
-                        className="h-7 w-7 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors"
+                        className="h-7 w-7 rounded-full border border-border flex items-center justify-center hover:bg-secondary transition-colors"
                       >
                         <Minus className="h-3 w-3" />
                       </button>
@@ -137,9 +137,9 @@ export function CartSidebar() {
                       </span>
                       <button
                         onClick={() =>
-                          updateQuantity(item.id, item.quantity + 1)
+                          updateQuantity(item.id, item.quantity + 1, item.selectedSize)
                         }
-                        className="h-7 w-7 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors"
+                        className="h-7 w-7 rounded-full border border-border flex items-center justify-center hover:bg-secondary transition-colors"
                       >
                         <Plus className="h-3 w-3" />
                       </button>
@@ -148,8 +148,8 @@ export function CartSidebar() {
 
                   {/* Remove button */}
                   <button
-                    onClick={() => removeItem(item.id)}
-                    className="p-2 text-gray-400 hover:text-rose-600 transition-colors self-start"
+                    onClick={() => removeItem(item.id, item.selectedSize)}
+                    className="p-2 text-foreground/40 hover:text-accent transition-colors self-start"
                   >
                     <Trash2 className="h-4 w-4" />
                   </button>
@@ -164,22 +164,22 @@ export function CartSidebar() {
               {/* Subtotal */}
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-500">Subtotal</span>
+                  <span className="text-muted-foreground">Subtotal</span>
                   <span className="font-medium">{formatPrice(getTotalPrice())}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-500">Envío</span>
-                  <span className="text-gray-500">Se calcula en el checkout</span>
+                  <span className="text-muted-foreground">Envío</span>
+                  <span className="text-muted-foreground">Se calcula en el checkout</span>
                 </div>
                 <div className="flex justify-between text-lg font-bold pt-2 border-t">
                   <span>Total</span>
-                  <span className="text-rose-600">{formatPrice(getTotalPrice())}</span>
+                  <span className="text-accent">{formatPrice(getTotalPrice())}</span>
                 </div>
               </div>
 
               {/* Checkout button */}
               <Link href="/checkout" onClick={closeCart}>
-                <Button className="w-full bg-rose-600 hover:bg-rose-700 text-white py-3">
+                <Button className="w-full bg-accent hover:bg-amber-600 text-white py-3">
                   Ir al checkout
                 </Button>
               </Link>
